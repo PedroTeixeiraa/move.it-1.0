@@ -92,8 +92,7 @@ $ yarn dev
 http://localhost:3000
 ```
 
-
-## 📝 License
+<h2 id="license"> 📝 License </h2>
 <p>This project is licensed under the MIT License - see the <a href="https://github.com/PedroTeixeiraa/move.it-1.0/blob/main/LICENSE">LICENSE</a> file for details.</p>
 
 <hr> </hr>
