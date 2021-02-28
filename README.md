@@ -63,8 +63,39 @@
 The following tools were used in the construction of the project:
 
 - [ReactJS](https://reactjs.org)
+- [Typescript](https://www.typescriptlang.org/)
 - [NextJS](https://nextjs.org)
 - [NodeJS](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com) or Npm
 - [VSCode](https://code.visualstudio.com)
 - [Git Bash](https://gitforwindows.org/)
+
+
+<h2 id="usage" > 👷 Usage </h2>
+
+Required! Install git, node and yarn (or npm).
+
+```bash
+# Clone Repository
+$ git clone https://github.com/PedroTeixeiraa/move.it-1.0.git
+
+# Go to server folder
+$ cd move.it-1.0
+
+# Install Dependencies
+$ yarn
+
+# Run Aplication
+$ yarn dev
+
+# Access localhost
+http://localhost:3000
+```
+
+
+## 📝 License
+<p>This project is licensed under the MIT License - see the <a href="https://github.com/PedroTeixeiraa/move.it-1.0/blob/main/LICENSE">LICENSE</a> file for details.</p>
+
+<hr> </hr>
+<p> Made with 💜  by Pedro Teixeira 👋 <a href="https://www.linkedin.com/in/pedro-teixeira-alves/" rel="nofollow">See my linkedin</a> </p>
+
