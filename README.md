@@ -2,30 +2,69 @@
   <img alt="logo moveit"  src="public/logo-full.svg">
 </div>
 
+<p align="center"> Application developed in the fourth edition of Rocketseat Next Level Week 💻🚀 </p>
+
 <p align="center">
-  <a href="#-about-the-project">About the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-license">License</a>
+ <a href="#objective">Objective</a> •
+ <a href="#technologies">Technologies</a> • 
+ <a href="#usage">Usage</a> • 
+ <a href="#contribution">Contribution</a> • 
+ <a href="#author">Author</a> • 
+ <a href="#license">License</a>
 </p>
 
-## 🚀 Technologies
+<h1 align="center">
+  <img 
+       width="600" 
+       style="border-radius: 10px" 
+       height="auto" 
+       alt="level.up" 
+       title="Level Up" 
+       src="https://user-images.githubusercontent.com/54821438/109429181-3345ab00-79d9-11eb-8008-ac00ed3efb14.PNG" 
+    />
+<div style="display: flex; flex-direction: row;">
+  <img 
+       width="400" 
+       style="border-radius: 10px" 
+       height="auto" 
+       alt="level.up" 
+       title="Level Up" 
+       src="https://user-images.githubusercontent.com/54821438/109429185-3a6cb900-79d9-11eb-9fe0-be6ef03fa68d.PNG" 
+  />
+  <img 
+       width="400" 
+       style="border-radius: 10px" 
+       height="auto" 
+       alt="level.up" 
+       title="Level Up" 
+       src="https://user-images.githubusercontent.com/54821438/109429187-3b9de600-79d9-11eb-8656-323a8371937f.PNG"
+   />
+  <div>
+  <div style="display: flex; flex-direction: row;">
+  <img 
+       width="400" 
+       style="border-radius: 10px" 
+       height="auto" 
+       alt="level.up" 
+       title="Level Up" 
+       src="https://user-images.githubusercontent.com/54821438/109429190-3e004000-79d9-11eb-9fa7-63486d401bb7.PNG" 
+   />
+  <img 
+       width="400" 
+       style="border-radius: 10px" 
+       height="auto" alt="level.up"
+       title="Level Up" 
+       src="https://user-images.githubusercontent.com/54821438/109429192-4193c700-79d9-11eb-836d-2a7f25b88562.PNG" 
+   />
+  <div>
+</h1>
+    
+<h2 id="technologies"> 🛠 Technologies </h2>
+The following tools were used in the construction of the project:
 
-<ul>
-<li><a href="https://reactjs.org/" rel="nofollow">ReactJS</a></li>
-<li><a href="https://www.typescriptlang.org/" rel="nofollow">TypeScript</a></li>
-</ul>
-
-## 💻 Getting started
-@@ -57,62 +22,12 @@
-<ul>
-  <li><a href="https://nodejs.org/en/" rel="nofollow">Node.js</a></li>
-  <li><a href="https://classic.yarnpkg.com/" rel="nofollow">Yarn</a></li>
-</ul> 
-<pre>$ git clone https://github.com/PedroTeixeiraa/move.it-1.0.git <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> move.it-1.0</pre>
-<p><strong>Follow the steps below</strong></p>
-
-## 📝 License
-<p>This project is licensed under the MIT License - see the <a href="https://github.com/PedroTeixeiraa/move.it-1.0/blob/main/LICENSE">LICENSE</a> file for details.</p>
-<hr> </hr>
-<p> Made with 💜  by Pedro Teixeira 👋 <a href="https://www.linkedin.com/in/pedro-teixeira-alves/" rel="nofollow">See my linkedin</a> </p>
+- [ReactJS](https://reactjs.org)
+- [NextJS](https://nextjs.org)
+- [NodeJS](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com) or Npm
+- [VSCode](https://code.visualstudio.com)
+- [Git Bash](https://gitforwindows.org/)
