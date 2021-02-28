@@ -1,5 +1,4 @@
 import { createContext, useState, ReactNode, useEffect } from 'react'
-import Cookies from 'js-cookie'
 import challenges from '../../challenges.json'
 import { LevelUpModal } from '../components/LevelUpModal'
 import axios from 'axios'
@@ -25,14 +24,12 @@ interface ChallegesContextData {
 }
 
 interface ChallegensProviderProps {
-  level: number;
-  currentExperience: number;
-  challengesCompleted: number;
   children: ReactNode;
   session?: {
     user: {
       name: string;
       email: string;
+      image: string;
     }
   }
 }
@@ -43,56 +40,57 @@ export function ChallegensProvider({
   children, 
   ...rest 
 }: ChallegensProviderProps) {
-  const [level, setLevel] = useState(rest.level ?? 1)
-  const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0)
-  const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0)
+  const [level, setLevel] = useState(1)
+  const [currentExperience, setCurrentExperience] = useState(0)
+  const [challengesCompleted, setChallengesCompleted] = useState(0)
+  const [totalExperience, setTotalExperience] = useState(0)
 
   const [activeChallenge, setActiveChallenge] = useState(null)
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
 
+  const [isUserCharged, setIsUserCharged] = useState(false)
+
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
 
   useEffect(() => {
-    const data = {
-      name: rest.session.user.name,
-      email: rest.session.user.email,
-      level,
-      currentExperience,
-      challengesCompleted,
+    async function initialUser() {
+      await axios.post('/api/initial-user', rest.session.user).then(response => {
+        setLevel(response.data.level)
+        setCurrentExperience(response.data.currentExperience)
+        setChallengesCompleted(response.data.challengesCompleted)
+        setTotalExperience(response.data.totalExperience)
+        setIsUserCharged(true)
+      })
     }
-
-    axios.post(`/api/create-user`, data).then(response => {
-      setLevel(response.data.level ?? 1)
-      setCurrentExperience(response.data.currentExperience ?? 0)
-      setChallengesCompleted(response.data.challengesCompleted ?? 0) 
-    })
+    initialUser()
   }, [])
 
   useEffect(() => {
-    const data = {
-      name: rest.session.user.name,
-      email: rest.session.user.email,
-      level,
-      currentExperience,
-      challengesCompleted,
+    async function updateUserData() {
+      if (isUserCharged) {
+        const data = {
+          name: rest.session.user.name,
+          email: rest.session.user.email,
+          image: rest.session.user.image,
+          level,
+          currentExperience,
+          challengesCompleted,
+          totalExperience,
+        }
+     
+        axios.put('/api/update-user', data).then(response => {
+          setLevel(response.data.level)
+          setCurrentExperience(response.data.currentExperience)
+          setChallengesCompleted(response.data.challengesCompleted)
+        })
+      }
     }
-    axios.put(`/api/update-user`, data).then(response => {
-      setLevel(response.data.level ?? 1)
-      setCurrentExperience(response.data.currentExperience ?? 0)
-      setChallengesCompleted(response.data.challengesCompleted ?? 0) 
-    })
-  }, [level, currentExperience, challengesCompleted])
-
+    updateUserData()
+  }, [level, currentExperience, challengesCompleted, totalExperience])
 
   useEffect(() => {
     Notification.requestPermission()
   }, [])
-
-  useEffect(() => {
-    Cookies.set('level', String(level))
-    Cookies.set('currentExperience',  String(currentExperience))
-    Cookies.set('challengesCompleted', String(challengesCompleted))
-  }, [level, currentExperience, challengesCompleted])
 
   function closeLevelUpModal() {
     setIsLevelUpModalOpen(false)
@@ -116,7 +114,6 @@ export function ChallegensProvider({
         body: `Valendo ${challenge.amount}xp`
       })
     }
-
   }
 
   function resetChallenge() {
@@ -140,6 +137,7 @@ export function ChallegensProvider({
     setCurrentExperience(finalExperience)
     setActiveChallenge(null)
     setChallengesCompleted(challengesCompleted + 1)
+    setTotalExperience(totalExperience + amount)
   }
 
   return (
