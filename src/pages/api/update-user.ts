@@ -1,54 +1,28 @@
-import { NowRequest, NowResponse } from '@vercel/node'
-import { MongoClient, Db } from 'mongodb'
-import url from 'url'
-
-let chachedDb: Db = null
-
-async function connecToDataBase(uri: string) {
-  if (chachedDb) {
-    return chachedDb
-  }
-
-  const client = await MongoClient.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }) 
-
-  const dbName = url.parse(uri).pathname.substr(1)
-
-  const db = client.db(dbName)
-  
-  chachedDb = db
-
-  return db
-}
+import { NowRequest, NowResponse } from "@vercel/node";
+import { connectToDatabase } from "../../util/mongodb";
 
 export default async (request: NowRequest, response: NowResponse) => {
 
-  const {
-    name, 
+  const { 
     email, 
+    name, 
     level, 
     currentExperience, 
-    challengesCompleted
+    challengesCompleted,
+    totalExperience,
   } = request.body
+  const { db } = await connectToDatabase();
   
-  const db = await connecToDataBase(process.env.MONGODB_URI)
-   
-  const collection = db.collection('users')
-
   const update_user = {
     email,
     name,
     level,
     currentExperience,
     challengesCompleted,
+    totalExperience,
   }
-  await collection.updateOne({ email }, {$set: update_user})
-
-  const user = await collection.findOne({
-    email
-  })
   
-  return response.status(201).json(user)
+  await db.collection("users").updateOne({ email }, {$set: update_user})
+
+  return response.status(201).json(update_user);
 }
