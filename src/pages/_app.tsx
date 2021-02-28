@@ -1,8 +1,15 @@
 import '../styles/global.css'
 
+import Login from './login'
+import { useSession } from 'next-auth/client'
+
 function MyApp({ Component, pageProps }) {
+  const [session] = useSession()
+
   return (
-    <Component {...pageProps} />
+    <>
+      {!session ? <Login /> : <Component {...pageProps} session={session} />}
+    </>
   )
 }
 
