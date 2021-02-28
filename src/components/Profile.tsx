@@ -1,9 +1,6 @@
-import { signOut } from 'next-auth/client'
 import { useContext } from 'react'
 import { ChallengesContext } from '../contexts/ChallegensContext'
 import styles from '../styles/components/Profile.module.css'
-
-import axios from 'axios'
 
 interface ProfileProps {
   session?: {
@@ -12,16 +9,11 @@ interface ProfileProps {
       email: string;
       image: string;
     }
-  };
+  }
 }
 
 export function Profile(props: ProfileProps) {
-
   const { level } = useContext(ChallengesContext)
-
-  async function signOutMoveOn() {
-    signOut();
-  }
 
   return (
     <div className={styles.profileContainer}>
@@ -33,7 +25,6 @@ export function Profile(props: ProfileProps) {
           Level {level}
         </p>
       </div>
-      <button type="button" onClick={ signOutMoveOn } title="Sair do Move On" ><img src="icons/close.svg" alt="Sair" /></button>
     </div> 
   )
 }

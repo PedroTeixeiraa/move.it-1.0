@@ -1,0 +1,132 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 2.5rem 2rem;
+}
+
+.container header:first-child {
+  font-weight: 600;
+  font-size: 2.25rem;
+  color: var(--title);
+  line-height: 3rem;
+}
+
+.container > div {
+  width: 100%;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: (--text);
+  opacity: 0.5;
+
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.container > div .posicao {
+  width: 6rem;
+}
+
+.container > div .usuario {
+  width: 32rem;
+}
+
+.container > div .desafios {
+  width: 13rem;
+}
+
+.container > div .experiencia {
+  width: 10rem;
+}
+
+.container > main {
+  display: flex;
+  align-items: center;
+
+  background: var(--white);
+  margin-bottom: 0.4rem;
+
+  height: 6rem;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.container > main .level {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+
+  width: 5rem;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-right: 0.4rem solid var(--background);
+}
+
+.container > main .profile {
+  width: 33rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.container > main .profile > img {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+}
+
+.container > main .profile > div {
+  margin-left: 1.5rem;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+}
+
+.description > img {
+  margin-right: 0.5rem;
+}
+
+.container > main .profile > div strong {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--title);
+}
+
+.container > main .profile div p img {
+  margin-right: 0.5rem;
+}
+
+.container > main .challengesCompleted {
+  width: 13rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.container > main .challengesCompleted > span {
+  color: var(--blue);
+  margin-right: 0.25rem;
+}
+
+.container > main .totalXp {
+  font-weight: 500;
+  font-size: 1rem;
+  width: 10rem;
+}
+
+.container > main .totalXp > span {
+  color: var(--blue);
+  margin-right: 0.25rem;
+}
