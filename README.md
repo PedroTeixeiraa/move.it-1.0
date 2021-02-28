@@ -59,6 +59,12 @@
   <div>
 </h1>
     
+<h2 id="objective" > 🎯 Objective </h2>
+
+Track your time, be more productive and take care of your health. <a href="">Move.it</a> was developed for time management, as in the pomodoro technique, dividing the work into 25 minute periods. After that time it releases a challenge, which is some stretching for the body or exercise for the eyes. Each challenge has its xp points and, accumulating the points you level up.
+
+The layout of original move.it is available <a href="https://www.figma.com/file/ge20pu3ofMOKoliUyKx1Nl/?viewer=1&node-id=">here</a>.
+    
 <h2 id="technologies"> 🛠 Technologies </h2>
 The following tools were used in the construction of the project:
 
@@ -91,6 +97,20 @@ $ yarn dev
 # Access localhost
 http://localhost:3000
 ```
+
+<h2 id="contribution"> 🤝 Contribution </h2>
+
+This project is for study purposes too, so send me an email telling me what you are doing and why you are doing it, teach me what you know. All kinds of contributions are very welcome and appreciated!
+
+<h2 id="author"> 💻 Author </h2>
+
+<img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/54821438?v=4" width="100px;" alt=""/>
+
+By Pedro Alves 👋🏽 Find me:
+
+[![Linkedin Badge](https://img.shields.io/badge/-PedroTeixeira-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/pedro-teixeira-alves/)](https://www.linkedin.com/in/pedro-teixeira-alves/)
+[![Gmail Badge](https://img.shields.io/badge/-pedroteixeiraalves007@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:pedroteixeiraalves007@gmail.com)](mailto:pedroteixeiraalves007@gmail.com)
+
 
 <h2 id="license"> 📝 License </h2>
 <p>This project is licensed under the MIT License - see the <a href="https://github.com/PedroTeixeiraa/move.it-1.0/blob/main/LICENSE">LICENSE</a> file for details.</p>
