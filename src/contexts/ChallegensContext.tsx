@@ -2,6 +2,7 @@ import { createContext, useState, ReactNode, useEffect } from 'react'
 import Cookies from 'js-cookie'
 import challenges from '../../challenges.json'
 import { LevelUpModal } from '../components/LevelUpModal'
+import axios from 'axios'
 
 interface Challenge {
   type: 'body' | 'eye';
@@ -24,10 +25,16 @@ interface ChallegesContextData {
 }
 
 interface ChallegensProviderProps {
-  children: ReactNode;
   level: number;
   currentExperience: number;
   challengesCompleted: number;
+  children: ReactNode;
+  session?: {
+    user: {
+      name: string;
+      email: string;
+    }
+  }
 }
 
 export const ChallengesContext = createContext({} as ChallegesContextData) 
@@ -46,14 +53,45 @@ export function ChallegensProvider({
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
 
   useEffect(() => {
+    const data = {
+      name: rest.session.user.name,
+      email: rest.session.user.email,
+      level,
+      currentExperience,
+      challengesCompleted,
+    }
+
+    axios.post(`/api/create-user`, data).then(response => {
+      setLevel(response.data.level ?? 1)
+      setCurrentExperience(response.data.currentExperience ?? 0)
+      setChallengesCompleted(response.data.challengesCompleted ?? 0) 
+    })
+  }, [])
+
+  useEffect(() => {
+    const data = {
+      name: rest.session.user.name,
+      email: rest.session.user.email,
+      level,
+      currentExperience,
+      challengesCompleted,
+    }
+    axios.put(`/api/update-user`, data).then(response => {
+      setLevel(response.data.level ?? 1)
+      setCurrentExperience(response.data.currentExperience ?? 0)
+      setChallengesCompleted(response.data.challengesCompleted ?? 0) 
+    })
+  }, [level, currentExperience, challengesCompleted])
+
+
+  useEffect(() => {
     Notification.requestPermission()
   }, [])
 
   useEffect(() => {
     Cookies.set('level', String(level))
-    Cookies.set('currentExperience', String(currentExperience))
+    Cookies.set('currentExperience',  String(currentExperience))
     Cookies.set('challengesCompleted', String(challengesCompleted))
-
   }, [level, currentExperience, challengesCompleted])
 
   function closeLevelUpModal() {

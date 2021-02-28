@@ -15,6 +15,13 @@ interface HomeProps {
   level: number;
   currentExperience: number;
   challengesCompleted: number;
+  session?: {
+    user: {
+      name: string;
+      email: string;
+      image: string;
+    }
+  };
 }
 
 export default function Home(props: HomeProps) {
@@ -23,6 +30,7 @@ export default function Home(props: HomeProps) {
       level={props.level} 
       currentExperience={props.currentExperience} 
       challengesCompleted={props.challengesCompleted}
+      session={props.session}
     >
       <div className={styles.container}>
         <Head>
@@ -34,7 +42,7 @@ export default function Home(props: HomeProps) {
         <CountdownProvider>
           <section>
             <div> 
-              <Profile />
+              <Profile session={props.session}/>
               <CompletedChallenges />
               <CountDown />
             </div>
@@ -50,8 +58,9 @@ export default function Home(props: HomeProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    
   const { level, currentExperience, challengesCompleted } = ctx.req.cookies
-
+  
   return {
     props: {
       level: Number(level),
