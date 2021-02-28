@@ -9,9 +9,4 @@ export default (req, res) => NextAuth(req, res, {
     })
   ],
   debug: process.env.NODE_ENV === 'development',
-  secret: process.env.AUTH_SECRET,
-  jwt: {
-    secret: process.env.JWT_SECRET,
-  },
-
 })
