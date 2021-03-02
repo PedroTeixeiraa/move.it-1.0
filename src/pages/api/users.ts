@@ -7,7 +7,7 @@ export default async (req, res) => {
     .collection("users")
     .find({})
     .limit(20)
-    .sort({ totalExperience: 1})
+    .sort({ totalExperience: -1})
     .toArray();
     
   res.json(users);

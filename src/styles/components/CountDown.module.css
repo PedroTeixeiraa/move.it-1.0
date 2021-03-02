@@ -59,6 +59,10 @@
   transition: background-color 0.2s;
 }
 
+.countDownButton > img {
+  margin-left: 0.4rem;
+}
+
 .countDownButton:not(:disabled):hover {
   background: var(--blue-dark);
 }
@@ -66,6 +70,10 @@
 .countDownButtonActive {
   background: var(--white);
   color: var(--title);
+}
+
+.countDownButtonActive > img {
+  margin-left: 0.4rem;
 }
 
 .countDownButtonActive:not(:disabled):hover {
